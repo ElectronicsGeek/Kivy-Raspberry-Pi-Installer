@@ -24,13 +24,17 @@ gpg -a --export 0C667A3E | sudo apt-key add -
 
 # Update the package list and install dependencies
 sudo apt-get update
-sudo apt-get -y install pkg-config libgl1-mesa-dev libgles2-mesa-dev \
+sudo apt-get -y --force-yes install pkg-config libgl1-mesa-dev libgles2-mesa-dev \
    python-pygame python-setuptools libgstreamer1.0-dev git-core \
    gstreamer1.0-plugins-{bad,base,good,ugly} \
    gstreamer1.0-{omx,alsa} python-dev
-   
-# Install cython via pip
-sudo pip install cython
+
+# Acquire and install pip
+pi@raspberrypi ~ $ wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+pi@raspberrypi ~ $ sudo python get-pip.py
+
+# Use pip to install cython and pygments   
+sudo pip install cython pygments docutils
 
 # Get kivy from git
 git clone https://github.com/kivy/kivy
