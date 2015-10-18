@@ -13,7 +13,7 @@ Ensure that you firstly do
   
 Then, to kick the script off, simply type
 
-    ./install_kivy_rpi
+    sudo ./install_kivy_rpi
   
 ## Post Installation
 
