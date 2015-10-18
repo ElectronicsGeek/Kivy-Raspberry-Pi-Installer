@@ -42,6 +42,6 @@ cd kivy
 python setup.py build
 python setup.py install
 
+# Go to root's home directory and delete the kivy folder, to save space
 cd ~
-
 rm -rf kivy
