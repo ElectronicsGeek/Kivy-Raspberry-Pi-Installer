@@ -3,20 +3,18 @@
 # Kivy installer for Raspberry Pi.
 # A quick and easy way to get the Kivy framework installed on your Pi
 # Adapted from "http://kivy.org/docs/installation/installation-rpi.html"
+# & https://github.com/mrichardson23/rpi-kivy-screen
 
 # Gregory Parker 2015
 
 # Ensure the script is invoked by the root user
 if [ "$(id -u)" -ne 0 ] ; then
         echo "You must invoke this script as root. Try using 'sudo'"
+        exit 1
 fi
 
-# Enable the addition of packages to /etc/apt/sources.d using
-# "add-apt-repository"
-sudo apt-get -y install python-software-properties
-
-# Add APT sources to get GStreamer 
-sudo add-apt-repository "deb http://vontaene.de/raspbian-updates/ . main"
+# Add vontaene repository for the installation of gstreamer
+sudo /bin/su -c "echo 'deb http://vontaene.de/raspbian-updates/ . main' >> /etc/apt/sources.list"
 
 # Add the APT key for vontaene
 gpg --recv-keys 0C667A3E
